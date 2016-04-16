@@ -2766,61 +2766,88 @@ body:not(.is-cordova) {
 		}
 	}
 }
-.compact{
-	.message{
-		min-height: 26px;
-		padding: 5px 15px 0 37px;
-		.body{
+.compact {
+	.message {
+		position: relative;
+		line-height: 20px;
+		min-height: 20px;
+		padding: 2px 6px 1px 38px;
+		.body {
 			display: inline;
-			margin-left: -5px;
-			.inline-image img{
+			.inline-image img {
 				max-height: 100px;
 			}
-			.inline-video{
+			.inline-video {
 				max-height: 150px;
 			}
 			.attachment {
 				.attachment-title > a {
 					font-size: 0.9em;
 				}
-				.attachment-author img{
+				.attachment-author img {
 					border-radius: 2px;
 				}
 			}
-			blockquote iframe{
-				height: 150px;
-				width: 266px;
+			blockquote {
+				iframe {
+					height: 150px;
+					width: 266px;
+				}
+				div {
+					padding: 0px 0px 0px 0px !important;
+				}
+				> div:first-child {
+					min-height: 60px !important;
+				}
 			}
 		}
-		.info{
-			.avatar-image{
+		.info {
+			position: static;
+			float: right;
+			height: 20px;
+			.message-cog-container {
+				float: left;
+				.message-dropdown {
+					left: auto;
+					right: -2px;
+					ul {
+						flex-direction: row-reverse;
+						li:first-child i:before {
+							content: "\d7";
+						}
+					}
+				}
+			}
+			.avatar-image {
 				border-radius: 2px;
 			}
-			.role-tag{
-				display: none;
-			}
 		}
-		.thumb{
+		.thumb {
 			height: 20px;
 			width: 20px;
 			left: 10px;
 		}
-		&.sequential{
-			 .thumb:not(.thumb-small), .user {
-				 display: inline-block;
-			 }
-			.info{
-				position: relative;
-				text-align: right;
-				left: -5px;
-				.time, .edited{
-					display: inline-block;
-				}
+		.user {
+			color: #aaa;
+			font-weight: 400;
+			font-size: 12px;
+			margin-right: 0px;
+			margin-left: 2px;
+			float: right;
+			&:before {
+				content: ":";
 			}
 		}
-	}
-	.message-cog-container .message-cog{
-		visibility: visible;
+		&.sequential {
+			padding-top: 0px;
+			padding-bottom: 0px;
+			.info {
+				width: auto;
+			}
+		}
+		&.new-day {
+			margin-top: 35px;
+		}
 	}
 }
 
