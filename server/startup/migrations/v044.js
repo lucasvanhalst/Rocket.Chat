@@ -7,9 +7,9 @@ RocketChat.Migrations.add({
 		RocketChat.models.Users.find().forEach(
 			function(user){
 				if(user.settings && user.settings.preferences && user.settings.preferences.compactView){
-					cozyViewUserIds.push(user._id)
+					cozyViewUserIds.push(user._id);
 				}else{
-					normalViewUserIds.push(user._id)
+					normalViewUserIds.push(user._id);
 				}
 			}
 		);
