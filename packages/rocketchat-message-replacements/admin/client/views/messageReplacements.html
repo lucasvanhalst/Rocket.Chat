@@ -1,0 +1,36 @@
+<template name="messageReplacements">
+    <div class="">
+		{{#if hasPermission}}
+            <a href="{{pathFor "admin-message-replacement"}}" class="button primary">{{_ "New_Message_replacement"}}</a>
+
+            <div class="rocket-form">
+                <div class="section">
+                    <div class="admin-integrations-new-panel">
+						{{#each messageReplacements}}
+                            <a href="{{pathFor "admin-message-replacement" id=_id}}">
+                                <div class="admin-integrations-new-item">
+                                    <div class="admin-integrations-new-item-body">
+                                        <div class="admin-integrations-new-item-title">
+											{{name}}
+                                        </div>
+                                        <div class="admin-integrations-new-item-description">
+											{{description}}
+                                        </div>
+										<div class="admin-integrations-new-item-description">
+											{{{_ "Created_at_s_by_s" (dateFormatted _createdAt) _createdBy.username}}}
+                                        </div>
+                                    </div>
+                                    <i class="icon-angle-right"></i>
+                                </div>
+                            </a>
+						{{else}}
+                            <h1>{{_ "There_are_no_message_replacements_yet"}}</h1>
+						{{/each}}
+                    </div>
+                </div>
+            </div>
+		{{else}}
+			{{_ "Not_authorized"}}
+		{{/if}}
+    </div>
+</template>
